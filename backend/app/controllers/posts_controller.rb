@@ -3,13 +3,14 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    posts = Post.all
 
-    render json: @posts
+    render json: posts
   end
 
   # GET /posts/1
   def show
+    photo = @post.photo
     render json: @post
   end
 
