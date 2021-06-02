@@ -1,5 +1,6 @@
 import './App.css';
 import { Component } from 'react'
+import PostContainer from './containers/PostContainer';
 
 const handleSubmit = e => {
   e.preventDefault()
@@ -28,6 +29,9 @@ class App extends Component {
         <input onChange={event => this.handleChange(event)} type="file" name="image" accept="image/*" />
         <input type='submit'></input>
         </form>
+        <br/>
+        <br/>
+        <PostContainer />
       </div>
     );
   }
