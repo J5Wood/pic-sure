@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     posts = Post.all
 
-    render json: PostSerializer.new(posts)
+    render json: PostSerializer.new(posts, { fields: { post: [:id, :attributes, :content, :photo_url, :relationships, :comments]}})
   end
 
   # GET /posts/1
