@@ -1,27 +1,39 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { fetchPosts } from '../actions/fetchPosts'
+import Post from './Post'
 
 class PostContainer extends Component {
 
+    renderPosts = () => {
+        if (this.props.posts) {
+            return this.props.posts.map(post => <Post post={post}/>)
+        }
+    }
+
     componentDidMount() {
-        fetch('http://localhost:3001/posts')
-        .then(resp => resp.json())
-        .then(jsonResp => this.props.populatePosts(jsonResp.data))
+        this.props.fetchPosts()
     }
 
     render() {
         return (
             <div>
                 Post Container
+                {this.renderPosts()}
             </div>
         )
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        posts: state.postReducer.posts
+    }
+}
 const mapDispatchToProps = dispatch => {
     return {
-        populatePosts: posts => dispatch({ type: 'ADD_POSTS', payload: posts}) 
+        fetchPosts: () => dispatch(fetchPosts()) 
     }
 }
 
-export default connect(null,mapDispatchToProps)(PostContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(PostContainer)
