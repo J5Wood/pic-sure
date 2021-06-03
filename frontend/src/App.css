@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #87ACA3;
 }
 
 .App-logo {
@@ -35,4 +36,15 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.post-card {
+  float: left;
+  max-width: 350px;
+  margin: 20px;
+  background-color: #2B7C85;
+}
+
+.image {
+  margin: 10px;
 }

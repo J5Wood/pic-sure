@@ -1,7 +1,10 @@
 import React from 'react'
+import Image from 'react-bootstrap/Image'
 
 export const Photo = props => {
     return (
-        <img src={props.src}/>
+        <div className='image'>
+            <Image src={props.src} fluid rounded/>
+        </div>
     )
 }
