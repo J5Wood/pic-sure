@@ -1,6 +1,7 @@
 .App {
   text-align: center;
-  background-color: #87ACA3;
+  min-height: 100vh;
+  background-color: #DEE2EC;
 }
 
 .App-logo {
@@ -38,11 +39,12 @@
   }
 }
 
+
 .post-card {
   float: left;
   max-width: 350px;
   margin: 20px;
-  background-color: #2B7C85;
+  background-color: #1AC8DB;
 }
 
 .image {
