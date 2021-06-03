@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addNewPost } from '../actions/Posts'
 
-export default class PostForm extends Component {
+class PostForm extends Component {
 
     state = {
         content: '',
@@ -21,7 +23,7 @@ export default class PostForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        debugger
+        this.props.addNewPost(this.state.content)
     }
   
 
@@ -35,3 +37,11 @@ export default class PostForm extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        addNewPost: post => dispatch(addNewPost(post))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(PostForm)
