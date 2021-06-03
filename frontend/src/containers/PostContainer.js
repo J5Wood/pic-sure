@@ -6,9 +6,7 @@ import Post from './Post'
 class PostContainer extends Component {
 
     renderPosts = () => {
-        if (this.props.posts) {
             return this.props.posts.map(post => <Post post={post}/>)
-        }
     }
 
     componentDidMount() {

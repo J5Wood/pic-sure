@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Photo } from '../components/Photo'
+import { Content } from '../components/Content'
 
 export default class Post extends Component {
     render() {
@@ -7,7 +8,7 @@ export default class Post extends Component {
         return (
             <div>
                 <Photo src={this.props.post.attributes.photo_url}/>
-                Post
+                <Content post={this.props.post} />
             </div>
         )
     }
