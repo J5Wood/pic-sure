@@ -4,7 +4,6 @@ import { Content } from '../components/Content'
 
 export default class Post extends Component {
     render() {
-        console.log(this.props.post)
         return (
             <div className="post-card">
                 <Photo src={this.props.post.attributes.photo_url}/>

@@ -7,19 +7,18 @@ export function fetchPosts() {
     }
 }
 
-export function addNewPost(formData) {
-    debugger
+export function addNewPost(formState) {
+    const formData = new FormData();
+    formData.append('content', formState.content)
+    formData.append('photo', formState.photo)
     let configObj = {
         method: 'POST',
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-        }, 
         body: formData
     }
     return dispatch => {
+        dispatch({type: 'BEGIN_ADDING_POST'})
         fetch('http://localhost:3001/posts', configObj)
         .then(resp => resp.json())
-        .then(jsonResp => console.log(jsonResp))
+        .then(jsonResp => dispatch({type: 'ADD_NEW_POST', payload: jsonResp.data}))
     }
 }

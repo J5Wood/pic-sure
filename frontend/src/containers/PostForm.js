@@ -6,12 +6,12 @@ class PostForm extends Component {
 
     state = {
         content: '',
-        file: []
+        photo: null
       }
     
     handleFile = e => {
         this.setState({
-            ...this.state, file: e.target.files[0]
+            ...this.state, photo: e.target.files[0]
         })
     }
 
@@ -23,14 +23,14 @@ class PostForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addNewPost(this.state.content)
+        this.props.addNewPost(this.state)
     }
   
 
     render() {
         return (
             <form onSubmit={this.handleSubmit} >
-                <input onChange={this.handleFile} type="file" name="image" accept="image/*" />
+                <input onChange={this.handleFile} type="file" name="photo" accept="image/*" />
                 <input type='text' value={this.state.content} onChange={this.handleContent}/>
                 <input type='submit'></input>
             </form>

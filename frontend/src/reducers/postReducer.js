@@ -16,6 +16,18 @@ export default function postReducer(
                 posts: action.payload,
                 loading: false
             }
+
+            case 'BEGIN_ADDING_POST':
+                return {
+                    ...state, loading: true
+                }
+            case 'ADD_NEW_POST':
+                return {
+                    ...state, posts: [
+                        ...state.posts, action.payload
+                    ],
+                    loading: false
+                }
         default:
             return state
     }
