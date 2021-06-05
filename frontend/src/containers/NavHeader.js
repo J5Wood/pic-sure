@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
 import PostForm from './PostForm'
-import LoginForm from './LoginForm'
+import SignupForm from './SignupForm'
 
 export default class NavHeader extends Component {
 
     state = {
         showForm: false,
-        showLogin: false
+        showSignup: false
     }
     
     togglePostForm = () => {
@@ -23,15 +23,15 @@ export default class NavHeader extends Component {
         }
     }
 
-    toggleLoginForm = () => {
+    toggleSignupForm = () => {
         this.setState({
-            loginForm: !this.state.loginForm
+            showSignup: !this.state.showSignup
         })
     }
 
-    renderLoginForm = () => {
-        if (this.state.loginForm) {
-            return <LoginForm />
+    renderSignupForm = () => {
+        if (this.state.showSignup) {
+            return <SignupForm />
         }
     }
 
@@ -40,11 +40,11 @@ export default class NavHeader extends Component {
             <div>
                 <Navbar collapseOnSelect  bg="dark" variant="dark">
                     <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
-                    <Button onClick={this.toggleLoginForm} variant="success">LOG-IN / SIGNUP</Button>
+                    <Button onClick={this.toggleSignupForm} variant="success">LOG-IN / SIGNUP</Button>
                     <Button onClick={this.togglePostForm}>New Post</Button>
                 </Navbar>
                 {this.renderPostForm()}
-                {this.renderLoginForm()}
+                {this.renderSignupForm()}
             </div>
         )
     }
