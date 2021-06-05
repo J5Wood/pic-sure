@@ -11,9 +11,12 @@ export function signup(credentials) {
         body: JSON.stringify(creds)
     }
     return dispatch => {
-        dispatch({type: 'LOGGING-IN'})
+        dispatch({type: 'LOGGING_IN'})
         fetch('http://localhost:3001/users', configObj)
         .then(resp => resp.json())
-        .then( jsonResp => console.log(jsonResp))
+        .then( jsonResp => {
+            localStorage.setItem("token", jsonResp.data.attributes.token)
+            dispatch({type: 'LOGIN_USER', payload: jsonResp.data.attributes})
+        })
     }
 }

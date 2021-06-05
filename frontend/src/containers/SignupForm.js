@@ -19,10 +19,10 @@ class SignupForm extends Component {
     handleSubmit = e => {
         e.preventDefault()
         this.props.signup(this.state)
-        this.setState = {
+        this.setState({
             username: '',
             password: ''
-        }
+        })
     }
 
     render() {
