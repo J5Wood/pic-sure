@@ -1,5 +1,6 @@
 export default function userReducer(
     state = {
+        user: [],
         loading: false
     }, action
 ) {
@@ -12,7 +13,8 @@ export default function userReducer(
 
         case 'LOGIN_USER':
             return {
-                ...state, loading: false
+                
+                loading: false
             }
 
             default:

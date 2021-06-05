@@ -44,3 +44,24 @@ export function signup(credentials) {
         })
     }
 }
+
+export function fetchLoggedInUser() {
+    return dispatch => {
+        const token = localStorage.token
+        if (token) {
+            const configObj ={
+                method: 'GET',
+                headers: {
+                    "Content-Type": 'application/json',
+                    Accept: 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+            }
+            return fetch("http://localhost:3001/auto-login", configObj)
+            .then(resp => resp.json())
+            .then(jsonResp => {
+                dispatch({ type: 'LOGIN_USER', payload: jsonResp.data})
+            })
+        }
+    }
+}
