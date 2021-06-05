@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/auto-login' => "session#auto_login"
+  post '/session' => "session#login"
   resources :users
   resources :posts
   resources :comments
