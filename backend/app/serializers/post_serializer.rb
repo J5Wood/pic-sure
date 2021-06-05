@@ -8,6 +8,6 @@ class PostSerializer
   end
 
   attribute :user do |object|
-    "#{object.user.email}"
+    "#{object.user.username}"
   end
 end
