@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { signup } from '../actions/UserActions';
+import { login } from '../actions/UserActions';
 
-class SignupForm extends Component {
+class LoginForm extends Component {
 
     state ={
         username: '',
@@ -18,7 +18,7 @@ class SignupForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.signup(this.state)
+        this.props.login(this.state)
         this.setState({
             username: '',
             password: ''
@@ -28,7 +28,7 @@ class SignupForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <h3>Signup!</h3>
+                <h3>Login!</h3>
                 <label htmlFor='username'>Username: </label>
                 <input type='text' id='username' name='username' value={this.state.username} onChange={this.handleChange}/>
                 <br/>
@@ -43,8 +43,8 @@ class SignupForm extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        signup: credentials => dispatch(signup(credentials))
+        login: credentials => dispatch(login(credentials))
     }
 }
 
-export default connect(null, mapDispatchToProps)(SignupForm)
+export default connect(null, mapDispatchToProps)(LoginForm)
