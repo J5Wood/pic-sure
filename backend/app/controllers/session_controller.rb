@@ -2,7 +2,7 @@ class SessionController < ApplicationController
 
     def login
         user = User.find_by(username: params[:username])
-        if user.authenticate(params[:password_digest])
+        if user.authenticate(params[:password])
             render json: UserSerializer.new(user, { fields: { user: [:attributes, :username, :token]}})
         else
             byebug
@@ -23,7 +23,7 @@ class SessionController < ApplicationController
     private
 
     def session_params
-        params.require(:session).permit(:username, :password_digest)
+        params.require(:session).permit(:username, :password)
     end
 
 end

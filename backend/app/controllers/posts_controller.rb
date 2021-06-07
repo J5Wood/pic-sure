@@ -17,7 +17,8 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-    post.user_id = 1
+    user = User.find_by(username: params[:user])
+    post.user_id = user.id
     if post.save
       render json: PostSerializer.new(post, { fields: { post: [:id, :attributes, :content, :photo_url, :user, :relationships, :comments]}})
     else
@@ -47,6 +48,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.permit(:content, :photo, :user_id)
+      params.permit(:content, :photo)
     end
 end
