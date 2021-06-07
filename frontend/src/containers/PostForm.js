@@ -23,7 +23,11 @@ class PostForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addNewPost(this.state)
+        this.props.addNewPost(this.state, this.props.user)
+        this.setState({
+            content: '',
+            photo: null
+        })
     }
   
 
@@ -38,10 +42,15 @@ class PostForm extends Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        user: state.userReducer.user
+    }
+}
 const mapDispatchToProps = dispatch => {
     return {
-        addNewPost: post => dispatch(addNewPost(post))
+        addNewPost: (post, user) => dispatch(addNewPost(post, user))
     }
 }
 
-export default connect(null, mapDispatchToProps)(PostForm)
+export default connect(mapStateToProps, mapDispatchToProps)(PostForm)

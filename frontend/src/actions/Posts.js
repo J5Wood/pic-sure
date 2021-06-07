@@ -7,10 +7,11 @@ export function fetchPosts() {
     }
 }
 
-export function addNewPost(formState) {
+export function addNewPost(formState, user) {
     const formData = new FormData();
     formData.append('content', formState.content)
     formData.append('photo', formState.photo)
+    formData.append('user', user)
     let configObj = {
         method: 'POST',
         body: formData

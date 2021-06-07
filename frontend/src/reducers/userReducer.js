@@ -13,7 +13,13 @@ export default function userReducer(
 
         case 'LOGIN_USER':
             return {
-                
+                user: action.payload.username,
+                loading: false
+            }
+
+        case 'LOGOUT_USER':
+            return {
+                user: [],
                 loading: false
             }
 

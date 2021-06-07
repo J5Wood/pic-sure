@@ -4,8 +4,11 @@ import Button from 'react-bootstrap/Button'
 import PostForm from './PostForm'
 import SignupForm from './SignupForm'
 import LoginForm from './LoginForm'
+import Badge from 'react-bootstrap/Badge'
+import { connect } from 'react-redux'
+import { logout } from '../actions/UserActions'
 
-export default class NavHeader extends Component {
+class NavHeader extends Component {
 
     state = {
         showForm: false,
@@ -49,6 +52,11 @@ export default class NavHeader extends Component {
         }
     }
 
+    logout = () => {
+        this.props.logout(this.props.user)
+
+    }
+
     render() {
         return (
             <div>
@@ -57,6 +65,8 @@ export default class NavHeader extends Component {
                     <Button onClick={this.toggleLoginForm} variant="success">LOG-IN</Button>
                     <Button onClick={this.toggleSignupForm} variant="success">SIGNUP</Button>
                     <Button onClick={this.togglePostForm}>New Post</Button>
+                    <h3><Badge variant="info" >{this.props.user}</Badge></h3>
+                    <Button onClick={this.logout} variant="danger">LOGOUT</Button>
                 </Navbar>
                 {this.renderPostForm()}
                 {this.renderLoginForm()}
@@ -65,3 +75,16 @@ export default class NavHeader extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        user: state.userReducer.user
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        logout: user => dispatch(logout(user))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(NavHeader)

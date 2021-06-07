@@ -1,7 +1,7 @@
 export function login(credentials) {
     const username = credentials.username
-    const password_digest = credentials.password
-    const creds = {password_digest, username}
+    const password = credentials.password
+    const creds = {password, username}
     let configObj = {
         method: 'POST',
         headers: {
@@ -24,8 +24,8 @@ export function login(credentials) {
 
 export function signup(credentials) {
     const username = credentials.username
-    const password_digest = credentials.password
-    const creds = {password_digest, username}
+    const password = credentials.password
+    const creds = {password, username}
     let configObj = {
         method: 'POST',
         headers: {
@@ -48,7 +48,7 @@ export function signup(credentials) {
 export function fetchLoggedInUser() {
     return dispatch => {
         const token = localStorage.token
-        if (token) {
+        if (token && token !== "null") {
             const configObj ={
                 method: 'GET',
                 headers: {
@@ -60,8 +60,15 @@ export function fetchLoggedInUser() {
             return fetch("http://localhost:3001/auto-login", configObj)
             .then(resp => resp.json())
             .then(jsonResp => {
-                dispatch({ type: 'LOGIN_USER', payload: jsonResp.data})
+                dispatch({ type: 'LOGIN_USER', payload: jsonResp.data.attributes})
             })
         }
+    }
+}
+
+export function logout(user) {
+    localStorage.setItem("token", null)
+    return dispatch => {
+        dispatch({type: 'LOGOUT', payload: user})
     }
 }
