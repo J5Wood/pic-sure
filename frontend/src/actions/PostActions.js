@@ -23,3 +23,7 @@ export function addNewPost(formState, user) {
         .then(jsonResp => dispatch({type: 'ADD_NEW_POST', payload: jsonResp.data}))
     }
 }
+
+export function fetchPost(id) {
+    debugger
+}

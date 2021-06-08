@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addNewPost } from '../actions/Posts'
+import { addNewPost } from '../actions/PostActions'
 
 class PostForm extends Component {
 
