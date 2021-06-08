@@ -16,7 +16,6 @@ class PostContainer extends Component {
     render() {
         return (
             <div>
-                Post Container
                 {this.renderPosts()}
             </div>
         )

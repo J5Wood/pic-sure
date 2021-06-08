@@ -1,9 +1,10 @@
 import './App.css';
 import { Component } from 'react'
-import PostContainer from './containers/PostContainer';
-import NavHeader from './containers/NavHeader';
 import { connect } from 'react-redux'
 import { fetchLoggedInUser } from './actions/UserActions'
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Main from './containers/Main'
+import Welcome from './containers/Welcome'
 
 class App extends Component {
 
@@ -11,13 +12,13 @@ class App extends Component {
     this.props.fetchLoggedInUser()
   }
 
-  render() {
+  render() { 
     return (
       <div className="App">
-        <NavHeader />
-        <br/>
-        <br/>
-        <PostContainer />
+        <Router>
+          <Route exact path="/home" component={Main} />
+          <Route exact path="/" component={Welcome} />
+        </Router>
       </div>
     );
   }
@@ -27,4 +28,11 @@ const mapDispatchToProps = dispatch => {
     fetchLoggedInUser: () => dispatch(fetchLoggedInUser())
   }
 }
-export default connect(null, mapDispatchToProps)(App);
+
+const mapStateToProps = state => {
+  return {
+    currentUser: state.userReducer.user
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

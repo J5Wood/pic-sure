@@ -1,6 +1,6 @@
 export default function userReducer(
     state = {
-        user: [],
+        user: null,
         loading: false
     }, action
 ) {
@@ -17,9 +17,9 @@ export default function userReducer(
                 loading: false
             }
 
-        case 'LOGOUT_USER':
+        case 'LOGOUT':
             return {
-                user: [],
+                user: null,
                 loading: false
             }
 
