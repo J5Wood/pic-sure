@@ -5,6 +5,7 @@ import { fetchLoggedInUser } from './actions/UserActions'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Main from './containers/Main'
 import Welcome from './containers/Welcome'
+import PostContainer from './containers/PostContainer'
 
 class App extends Component {
 
@@ -17,7 +18,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Route exact path="/home" component={Main} />
-          {/* <Route exact path="/posts/:post_id" component={PostContainer} /> */}
+          <Route exact path="/posts/:post_id" component={PostContainer} />
           <Route exact path="/" component={Welcome} />
         </Router>
       </div>
