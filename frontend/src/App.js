@@ -17,6 +17,7 @@ class App extends Component {
       <div className="App">
         <Router>
           <Route exact path="/home" component={Main} />
+          {/* <Route exact path="/posts/:post_id" component={PostContainer} /> */}
           <Route exact path="/" component={Welcome} />
         </Router>
       </div>

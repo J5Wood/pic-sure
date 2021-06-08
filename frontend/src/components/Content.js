@@ -3,8 +3,10 @@ import React from 'react'
 export const Content = props => {
     return (
         <div>
-            <h4>- {props.post.attributes.user}</h4>
-            <p>{props.post.attributes.content}</p>
+            <li><b>{props.post.attributes.user}</b> - {props.post.attributes.content}</li>
+            <br/>
+        
+            {/* <Comments /> */}
         </div>
     )
 }

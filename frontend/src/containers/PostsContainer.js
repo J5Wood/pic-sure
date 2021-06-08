@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchPosts } from '../actions/Posts'
 import Post from './Post'
 
-class PostContainer extends Component {
+class PostsContainer extends Component {
 
     renderPosts = () => {
             return this.props.posts.map(post => <Post key={post.id} post={post}/>)
@@ -33,4 +33,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(PostContainer)
+export default connect(mapStateToProps,mapDispatchToProps)(PostsContainer)

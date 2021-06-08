@@ -1,5 +1,5 @@
 import { Component } from 'react'
-import PostContainer from './PostContainer';
+import PostsContainer from './PostsContainer';
 import NavHeader from './NavHeader';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux'
@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 // import { fetchLoggedInUser } from '../actions/UserActions'
 
 class Main extends Component {
-    
+
   render() {
     if (!this.props.currentUser) {
         return <Redirect to="/"/>
@@ -17,7 +17,7 @@ class Main extends Component {
         <NavHeader />
         <br/>
         <br/>
-        <PostContainer />
+        <PostsContainer />
       </div>
     );
   }
