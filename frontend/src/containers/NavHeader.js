@@ -54,7 +54,25 @@ class NavHeader extends Component {
 
     logout = () => {
         this.props.logout(this.props.user)
+    }
 
+    renderDisplay = () => {
+        if (!!this.props.currentUser) {
+            return (
+                <div>
+                    <Badge variant="info" >{this.props.currentUser}</Badge>
+                    <Button onClick={this.togglePostForm}>New Post</Button>
+                    <Button onClick={this.logout} variant="danger">LOGOUT</Button>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                <Button onClick={this.toggleLoginForm} variant="success">LOG-IN</Button>
+                <Button onClick={this.toggleSignupForm} variant="success">SIGNUP</Button>
+                </div>
+            )
+        }
     }
 
     render() {
@@ -62,11 +80,12 @@ class NavHeader extends Component {
             <div>
                 <Navbar collapseOnSelect  bg="dark" variant="dark">
                     <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
-                    <Button onClick={this.toggleLoginForm} variant="success">LOG-IN</Button>
+                    {this.renderDisplay()}
+                    {/* <Button onClick={this.toggleLoginForm} variant="success">LOG-IN</Button>
                     <Button onClick={this.toggleSignupForm} variant="success">SIGNUP</Button>
                     <Button onClick={this.togglePostForm}>New Post</Button>
-                    <h3><Badge variant="info" >{this.props.user}</Badge></h3>
-                    <Button onClick={this.logout} variant="danger">LOGOUT</Button>
+                    <h3><Badge variant="info" >{this.props.currentUser}</Badge></h3>
+                    <Button onClick={this.logout} variant="danger">LOGOUT</Button> */}
                 </Navbar>
                 {this.renderPostForm()}
                 {this.renderLoginForm()}
@@ -78,7 +97,7 @@ class NavHeader extends Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.userReducer.user
+        currentUser: state.userReducer.user
     }
 }
 
