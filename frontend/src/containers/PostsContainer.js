@@ -2,11 +2,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchPosts } from '../actions/PostActions'
 import Post from './Post'
+import { NavLink } from 'react-router-dom'
 
 class PostsContainer extends Component {
 
     renderPosts = () => {
-            return this.props.posts.map(post => <Post key={post.id} post={post}/>)
+            return this.props.posts.map(post => {
+                return (
+                    <NavLink key={post.id} to={"/posts/" + post.id} exact>
+                        <Post post={post}/>
+                    </NavLink>
+                )
+            })
     }
 
     componentDidMount() {
@@ -29,7 +36,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        fetchPosts: () => dispatch(fetchPosts()) 
+        fetchPosts: () => dispatch(fetchPosts())
     }
 }
 

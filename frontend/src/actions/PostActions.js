@@ -25,5 +25,10 @@ export function addNewPost(formState, user) {
 }
 
 export function fetchPost(id) {
-    debugger
+    return dispatch => {
+        dispatch({ type: "BEGIN_FETCHING_POST"})
+        fetch(`http://localhost:3001/posts/${id}`)
+        .then(resp => resp.json())
+        .then(jsonResp => dispatch({ type: 'DISPLAY_POST', payload: jsonResp.data}))
+    }
 }
