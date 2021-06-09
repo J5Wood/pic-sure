@@ -1,19 +1,16 @@
 class PostsController < ApplicationController
   # before_action :set_post, only: [:show, :update, :destroy]
 
-
-  ######## Get rid of comments to post serializers, only need bare minimum
-
   def index
     posts = Post.all
 
-    render json: PostSerializer.new(posts, { fields: { post: [:id, :attributes, :content, :photo_url, :user, :relationships, :comments]}})
+    render json: PostSerializer.new(posts)
   end
 
   # GET /posts/1
   def show
     post = Post.find_by(id: params[:id])
-    render json: PostSerializer.new(post, { fields: { post: [:id, :attributes, :content, :photo_url, :comments, :content, :user,]}})
+    render json: PostSerializer.new(post)
     # render json: PostSerializer.new(post)
   end
 
@@ -23,7 +20,7 @@ class PostsController < ApplicationController
     user = User.find_by(username: params[:user])
     post.user_id = user.id
     if post.save
-      render json: PostSerializer.new(post, { fields: { post: [:id, :attributes, :content, :photo_url, :user, :relationships, :comments]}})
+      render json: PostSerializer.new(post)
     else
       render json: @post.errors, status: :unprocessable_entity
     end
