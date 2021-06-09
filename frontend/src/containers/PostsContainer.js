@@ -7,13 +7,14 @@ import { NavLink } from 'react-router-dom'
 class PostsContainer extends Component {
 
     renderPosts = () => {
-            return this.props.posts.map(post => {
+            const posts = this.props.posts.map(post => {
                 return (
                     <NavLink key={post.id} to={"/posts/" + post.id} exact>
                         <Post post={post}/>
                     </NavLink>
                 )
             })
+            return posts.reverse()
     }
 
     componentDidMount() {
