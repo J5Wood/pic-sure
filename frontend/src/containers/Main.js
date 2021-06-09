@@ -2,19 +2,45 @@ import { Component } from 'react'
 import PostsContainer from './PostsContainer';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux'
+import PostForm from './PostForm'
+import Button from 'react-bootstrap/Button'
 
 class Main extends Component {
+
+    state = {
+        showForm: false
+    }
+
+    togglePostForm = () => {
+        this.setState({
+            showForm: !this.state.showForm
+        })
+    }
+
+    renderPostForm = () => {
+        if (this.state.showForm) {
+            return (
+                <div>
+                    <Button onClick={this.togglePostForm} variant="danger">X</Button>
+                    <PostForm closeForm={this.togglePostForm}/>
+                </div>
+            )
+        } else {
+            return <Button onClick={this.togglePostForm}>New Post</Button>
+        }
+    }
 
   render() {
     if (!this.props.currentUser) {
         return <Redirect to="/"/>
     }
     return (
-      <div>
-        <br/>
-        <br/>
-        <PostsContainer />
-      </div>
+        <div>
+            {this.renderPostForm()}
+            <br/>
+            <br/>
+            <PostsContainer />
+        </div>
     );
   }
 }

@@ -28,6 +28,7 @@ class PostForm extends Component {
             content: '',
             photo: null
         })
+        this.props.closeForm()
     }
   
     render() {

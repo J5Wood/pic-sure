@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
-import PostForm from './PostForm'
 import SignupForm from './SignupForm'
 import LoginForm from './LoginForm'
 import Badge from 'react-bootstrap/Badge'
@@ -14,18 +13,6 @@ class NavHeader extends Component {
         showForm: false,
         showSignup: false,
         showLogin: false
-    }
-    
-    togglePostForm = () => {
-        this.setState({
-            showForm: !this.state.showForm
-        })
-    }
-
-    renderPostForm = () => {
-        if (this.state.showForm) {
-            return <PostForm />
-        }
     }
 
     toggleLoginForm = () => {
@@ -59,7 +46,6 @@ class NavHeader extends Component {
             return (
                 <div>
                     <Badge variant="info" >{this.props.currentUser}</Badge>
-                    <Button onClick={this.togglePostForm}>New Post</Button>
                     <Button onClick={this.logout} variant="danger">LOGOUT</Button>
                 </div>
             )
@@ -79,7 +65,6 @@ class NavHeader extends Component {
                     <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
                     {this.renderDisplay()}
                 </Navbar>
-                {this.renderPostForm()}
                 {this.renderLoginForm()}
             </div>
         )
