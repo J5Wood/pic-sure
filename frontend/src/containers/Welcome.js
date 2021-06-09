@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import NavHeader from './NavHeader'
+// import NavHeader from './NavHeader'
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux'
 
@@ -10,7 +10,6 @@ class Welcome extends Component {
         }
         return (
             <div>
-                <NavHeader />
             </div>
         )
     }

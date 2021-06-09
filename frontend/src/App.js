@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Main from './containers/Main'
 import Welcome from './containers/Welcome'
 import PostContainer from './containers/PostContainer'
-
+import NavHeader from './containers/NavHeader'
 class App extends Component {
 
   componentDidMount() {
@@ -16,6 +16,7 @@ class App extends Component {
   render() { 
     return (
       <div className="App">
+        <NavHeader />
         <Router>
           <Route exact path="/home" component={Main} />
           <Route exact path="/posts/:post_id" component={PostContainer} />

@@ -1,6 +1,6 @@
 import { Component } from 'react'
 import PostsContainer from './PostsContainer';
-import NavHeader from './NavHeader';
+// import NavHeader from './NavHeader';
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux'
 // import { connect } from 'react-redux'
@@ -14,7 +14,6 @@ class Main extends Component {
     }
     return (
       <div>
-        <NavHeader />
         <br/>
         <br/>
         <PostsContainer />
