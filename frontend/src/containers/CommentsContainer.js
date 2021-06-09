@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchComments } from '../actions/CommentActions'
 import { Comment } from '../components/Comment'
+import CommentForm from './CommentForm'
 
 class CommentsContainer extends Component {
 
@@ -15,20 +16,23 @@ class CommentsContainer extends Component {
                 return <Comment key={comment.id} comment={comment}/>
             })
         }
-
     }
 
     render() {
         return (
             <div>
+                <br/>
                 {this.renderComments()}
+
+                <CommentForm user={this.props.currentUser} postId={this.props.postId}/>
             </div>
         )
     }
 }
 const mapStateToProps = state => {
     return {
-        comments: state.commentReducer.comments
+        comments: state.commentReducer.comments,
+        currentUser: state.userReducer.user
     }
 }
 

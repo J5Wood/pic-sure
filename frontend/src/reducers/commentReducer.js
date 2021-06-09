@@ -18,6 +18,19 @@ export default function commentReducer(
                 loading: false
             }
 
+        case "BEGIN_ADDING_COMMENT":
+            return {
+                ...state,
+                loading: true
+            }
+
+        case "ADD_COMMENT":
+            return {
+                ...state,
+                comments: [...state.comments, action.payload],
+                loading: false
+            }
+
         default:
             return state
 
