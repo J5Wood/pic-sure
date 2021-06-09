@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { fetchPost } from '../actions/PostActions'
 import Post from './Post'
 import CommentsContainer from './CommentsContainer'
+import { Redirect } from 'react-router';
 
 class PostContainer extends Component {
 
@@ -22,6 +23,9 @@ class PostContainer extends Component {
     }
 
     render() {
+        if (!this.props.currentUser) {
+            return <Redirect to="/"/>
+        }
         return (
             <div>
                 {this.renderPost()}
@@ -32,7 +36,8 @@ class PostContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        post: state.postReducer.post
+        post: state.postReducer.post,
+        currentUser: state.userReducer.user
     }
 }
 
