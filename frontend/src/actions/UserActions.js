@@ -15,7 +15,6 @@ export function login(credentials) {
         fetch('http://localhost:3001/session', configObj)
         .then(resp => resp.json())
         .then( jsonResp => {
-            console.log(jsonResp)
             localStorage.setItem("token", jsonResp.data.attributes.token)
             dispatch({type: 'LOGIN_USER', payload: jsonResp.data.attributes})
         })
@@ -59,9 +58,7 @@ export function fetchLoggedInUser() {
             }
             return fetch("http://localhost:3001/auto-login", configObj)
             .then(resp => resp.json())
-            .then(jsonResp => {
-                dispatch({ type: 'LOGIN_USER', payload: jsonResp.data.attributes})
-            })
+            .then(jsonResp => dispatch({ type: 'LOGIN_USER', payload: jsonResp.data.attributes}))
         }
     }
 }

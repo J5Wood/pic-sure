@@ -16,7 +16,6 @@ export function fetchComments(postId) {
 }
 
 export function addNewComment(comment) {
-    console.log(comment)
     const configObj = {
         method: 'POST',
         headers: {
