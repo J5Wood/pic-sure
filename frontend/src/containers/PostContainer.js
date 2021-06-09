@@ -4,6 +4,7 @@ import { fetchPost } from '../actions/PostActions'
 import Post from './Post'
 import CommentsContainer from './CommentsContainer'
 import { Redirect } from 'react-router';
+import { NavLink } from 'react-router-dom'
 
 class PostContainer extends Component {
 
@@ -28,6 +29,17 @@ class PostContainer extends Component {
         }
         return (
             <div>
+                <br/>
+                <NavLink
+                    to="/home"
+                    activeStyle={{
+                        fontWeight: "bold",
+                        color: "red",
+                        backgroundColor: "blue"
+                    }}
+                >BACK
+                </NavLink>
+                <br/>
                 {this.renderPost()}
             </div>
         )
