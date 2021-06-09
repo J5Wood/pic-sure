@@ -23,6 +23,7 @@ class LoginForm extends Component {
             username: '',
             password: ''
         })
+        this.props.closeForm()
     }
 
     render() {

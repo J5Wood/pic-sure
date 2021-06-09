@@ -28,18 +28,6 @@ class NavHeader extends Component {
         }
     }
 
-    toggleSignupForm = () => {
-        this.setState({
-            showSignup: !this.state.showSignup
-        })
-    }
-
-    renderSignupForm = () => {
-        if (this.state.showSignup) {
-            return <SignupForm />
-        }
-    }
-
     toggleLoginForm = () => {
         this.setState({
             showLogin: !this.state.showLogin
@@ -48,8 +36,18 @@ class NavHeader extends Component {
 
     renderLoginForm = () => {
         if (this.state.showLogin) {
-            return <LoginForm />
+            return (
+                <div> 
+                    <LoginForm closeForm={this.closeForm}/> - OR - <SignupForm closeForm={this.closeForm}/>
+                </div>
+            )
         }
+    }
+
+    closeForm = () => {
+        this.setState({
+            showLogin: !this.state.showLogin
+        })
     }
 
     logout = () => {
@@ -68,8 +66,7 @@ class NavHeader extends Component {
         } else {
             return (
                 <div>
-                <Button onClick={this.toggleLoginForm} variant="success">LOG-IN</Button>
-                <Button onClick={this.toggleSignupForm} variant="success">SIGNUP</Button>
+                <Button onClick={this.toggleLoginForm} variant="success">LOG-IN / SIGNUP</Button>
                 </div>
             )
         }
@@ -84,7 +81,6 @@ class NavHeader extends Component {
                 </Navbar>
                 {this.renderPostForm()}
                 {this.renderLoginForm()}
-                {this.renderSignupForm()}
             </div>
         )
     }
