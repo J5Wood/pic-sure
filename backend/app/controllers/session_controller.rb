@@ -3,7 +3,7 @@ class SessionController < ApplicationController
     def login
         user = User.find_by(username: params[:username])
         if user.authenticate(params[:password])
-            render json: UserSerializer.new(user, { fields: { user: [:attributes, :username, :token]}})
+            render json: UserSerializer.new(user)
         else
             byebug
         end
@@ -14,7 +14,7 @@ class SessionController < ApplicationController
             decoded_hash = (JWT.decode(token, 'secret' , true, algorithm: 'HS256'))
             if (!decoded_hash.empty?)
                 user = User.find_by(id: decoded_hash[0]["user_id"])
-                render json: UserSerializer.new(user, { fields: { user: [:attributes, :username, :token]}})
+                render json: UserSerializer.new(user)
             else
                 byebug
             end
