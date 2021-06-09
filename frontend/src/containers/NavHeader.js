@@ -81,11 +81,6 @@ class NavHeader extends Component {
                 <Navbar collapseOnSelect  bg="dark" variant="dark">
                     <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
                     {this.renderDisplay()}
-                    {/* <Button onClick={this.toggleLoginForm} variant="success">LOG-IN</Button>
-                    <Button onClick={this.toggleSignupForm} variant="success">SIGNUP</Button>
-                    <Button onClick={this.togglePostForm}>New Post</Button>
-                    <h3><Badge variant="info" >{this.props.currentUser}</Badge></h3>
-                    <Button onClick={this.logout} variant="danger">LOGOUT</Button> */}
                 </Navbar>
                 {this.renderPostForm()}
                 {this.renderLoginForm()}

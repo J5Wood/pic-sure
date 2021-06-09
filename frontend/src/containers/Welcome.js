@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import NavHeader from './NavHeader'
 import { Redirect } from 'react-router';
 import { connect } from 'react-redux'
 
