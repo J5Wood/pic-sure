@@ -63,7 +63,7 @@ class NavHeader extends Component {
                 <div className="d-flex flex-fill justify-content-center">
                     <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
                     <br/>
-                    <Button id="login-button" onClick={this.toggleLoginForm}>LOG-IN / SIGNUP</Button>
+                    <Button className="form-button" onClick={this.toggleLoginForm}>LOG-IN / SIGNUP</Button>
                 </div>
             )
         }

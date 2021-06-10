@@ -13,7 +13,12 @@ class CommentsContainer extends Component {
     renderComments = () => {
         if (!!this.props.comments[0]) {
             return this.props.comments.map(comment => {
-                return <Comment key={comment.id} comment={comment}/>
+                return (
+                <div key={comment.id}>
+                    <Comment comment={comment}/>
+                    <br/>
+                </div>
+                )
             })
         }
     }

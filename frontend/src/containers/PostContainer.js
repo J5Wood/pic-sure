@@ -32,12 +32,7 @@ class PostContainer extends Component {
                 <br/>
                 <NavLink
                     to="/home"
-                    activeStyle={{
-                        fontWeight: "bold",
-                        color: "red",
-                        backgroundColor: "blue"
-                    }}
-                >BACK
+                ><h3 className="back-button">BACK</h3>
                 </NavLink>
                 <br/>
                 {this.renderPost()}

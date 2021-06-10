@@ -53,6 +53,11 @@ body {background-color: #e4e9df;}
   color: white;
 }
 
+.form-button:hover {
+  background-color: #0b0f08;
+  color: #546329;
+}
+
 .login-signup-form{
   margin: 28px;
 }
@@ -73,6 +78,24 @@ body {background-color: #e4e9df;}
 
 .danger-button {
   background-color: #ed5255;
+}
+
+.danger-button:hover {
+  color: #ed5255;
+  background-color: #0b0f08;
+}
+
+.back-button {
+  color: white;
+  background-color: #546329;
+  max-width: 100px;
+  margin: auto;
+}
+.back-button:hover {
+  color: #546329;
+  background-color: #0b0f08;
+  max-width: 100px;
+  margin: auto;
 }
 
 .post-container {

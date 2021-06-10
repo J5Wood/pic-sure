@@ -33,7 +33,8 @@ class CommentForm extends Component {
                 <br/>
                 <b>{this.props.user}</b> - <input type="text" value={this.state.content} onChange={this.handleChange}/>
                 <br/>
-                <input type="submit" value="Comment"/>
+                <br/>
+                <input className="form-button" type="submit" value="Comment"/>
             </form>
         )
     }
