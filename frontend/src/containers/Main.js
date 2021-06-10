@@ -21,7 +21,6 @@ class Main extends Component {
         if (this.state.showForm) {
             return (
                 <div>
-                    <Button className="danger-button" onClick={this.togglePostForm}>X</Button>
                     <PostForm closeForm={this.togglePostForm}/>
                 </div>
             )

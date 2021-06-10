@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addNewPost } from '../actions/PostActions'
+import Button from 'react-bootstrap/Button'
 
 class PostForm extends Component {
 
@@ -35,11 +36,16 @@ class PostForm extends Component {
         return (
             <form onSubmit={this.handleSubmit} >
                 <br/>
-                <input onChange={this.handleFile} type="file" name="photo" accept="image/*" />
+                <input onChange={this.handleFile} id="file-input" type="file" name="photo" accept="image/*" />
                 <br/>
+                <br/>
+                {"Title: "}
                 <input type='text' value={this.state.content} onChange={this.handleContent}/>
                 <br/>
-                <input type='submit'></input>
+                <br/>
+                <Button className="danger-button margin-right" onClick={this.props.closeForm}>X</Button>
+                <input className="form-button" type='submit'></input>
+    
             </form>
         )
     }

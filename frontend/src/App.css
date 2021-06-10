@@ -67,6 +67,10 @@ body {background-color: #e4e9df;}
   border-radius:50%;
 }
 
+#file-input {
+  background-color: #a9bea6;
+}
+
 .danger-button {
   background-color: #ed5255;
 }
@@ -75,6 +79,10 @@ body {background-color: #e4e9df;}
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.margin-right {
+  margin-right: 8px;
 }
 
 .post-card {
