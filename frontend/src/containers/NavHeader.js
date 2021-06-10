@@ -24,8 +24,16 @@ class NavHeader extends Component {
     renderLoginForm = () => {
         if (this.state.showLogin) {
             return (
-                <div> 
-                    <LoginForm closeForm={this.closeForm}/> - OR - <SignupForm closeForm={this.closeForm}/>
+                <div className="d-flex flex-fill justify-content-center">
+                    <div className="login-signup-form">
+                    <LoginForm closeForm={this.closeForm}/>
+                    </div>
+                    <div className="d-inline-flex align-items-center">
+                    - OR -
+                    </div> 
+                    <div className="login-signup-form">
+                    <SignupForm closeForm={this.closeForm}/>
+                    </div>
                 </div>
             )
         }
@@ -47,7 +55,7 @@ class NavHeader extends Component {
                 <div className="d-flex flex-fill justify-content-between">
                     <Badge id="user-badge" className="d-inline-flex align-items-center" pill>{this.props.currentUser}</Badge>
                     <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
-                    <Button id="logout-button" onClick={this.logout}>LOGOUT</Button>
+                    <Button className="danger-button" onClick={this.logout}>LOGOUT</Button>
                 </div>
             )
         } else {

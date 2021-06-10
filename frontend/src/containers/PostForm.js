@@ -34,8 +34,11 @@ class PostForm extends Component {
     render() {
         return (
             <form onSubmit={this.handleSubmit} >
+                <br/>
                 <input onChange={this.handleFile} type="file" name="photo" accept="image/*" />
+                <br/>
                 <input type='text' value={this.state.content} onChange={this.handleContent}/>
+                <br/>
                 <input type='submit'></input>
             </form>
         )

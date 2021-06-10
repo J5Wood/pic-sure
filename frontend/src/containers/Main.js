@@ -21,12 +21,12 @@ class Main extends Component {
         if (this.state.showForm) {
             return (
                 <div>
-                    <Button onClick={this.togglePostForm} variant="danger">X</Button>
+                    <Button className="danger-button" onClick={this.togglePostForm}>X</Button>
                     <PostForm closeForm={this.togglePostForm}/>
                 </div>
             )
         } else {
-            return <Button onClick={this.togglePostForm}>New Post</Button>
+            return <Button className="form-button" onClick={this.togglePostForm}>New Post</Button>
         }
     }
 
@@ -36,6 +36,7 @@ class Main extends Component {
     }
     return (
         <div>
+            <br/>
             {this.renderPostForm()}
             <br/>
             <br/>

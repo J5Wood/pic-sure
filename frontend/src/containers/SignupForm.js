@@ -30,13 +30,13 @@ class SignupForm extends Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <h3>Signup!</h3>
-                <label htmlFor='username'>Username: </label>
-                <input type='text' id='username' name='username' value={this.state.username} onChange={this.handleChange}/>
+                <label htmlFor='signupUsername'>Username: </label>
+                <input type='text' id='signupUsername' name='username' value={this.state.username} onChange={this.handleChange}/>
                 <br/>
-                <label htmlFor='password'>Password: </label>
-                <input type='password' name='password' value={this.state.password} onChange={this.handleChange}/>
+                <label htmlFor='signupPassword'>Password: </label>
+                <input type='password' id="signupPassword" name='password' value={this.state.password} onChange={this.handleChange}/>
                 <br/>
-                <input type='submit'/>
+                <input className="form-button" type='submit'/>
             </form>
         )
     }

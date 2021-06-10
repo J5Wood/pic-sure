@@ -48,6 +48,15 @@ body {background-color: #e4e9df;}
   background-color: #546329;
 }
 
+.form-button {
+  background-color: #546329;
+  color: white;
+}
+
+.login-signup-form{
+  margin: 28px;
+}
+
 #user-badge {
   color: #0b0f08;
   background-color: #58af9e;
@@ -58,7 +67,7 @@ body {background-color: #e4e9df;}
   border-radius:50%;
 }
 
-#logout-button {
+.danger-button {
   background-color: #ed5255;
 }
 
