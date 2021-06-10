@@ -104,6 +104,10 @@ body {background-color: #e4e9df;}
   justify-content: space-evenly;
 }
 
+.post-content {
+  color: aliceblue;
+}
+
 .margin-right {
   margin-right: 8px;
 }
@@ -113,8 +117,9 @@ body {background-color: #e4e9df;}
   margin: auto;
   min-width: 350px;
   max-width: 350px;
-  min-height: 400px;
-  max-height: 400px;
+  min-height: min-content;
+  max-height: min-content;
+  overflow-wrap: break-word;
   margin: 20px;
   background-color: #0b0f08;
   border: #546329;
