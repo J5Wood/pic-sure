@@ -1,10 +1,4 @@
-.App {
-  text-align: center;
-  min-height: 100vh;
-  background-color: #DEE2EC;
-}
-
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -13,10 +7,10 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
-.App-header {
-  background-color: #282c34;
+/* .App-header {
+  background-color: #61063f;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,30 +18,75 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
-.App-link {
+/* .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+/* @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App {
+  text-align: center;
 }
 
+body {background-color: #e4e9df;}
+
+
+.navbar {
+  background-color: #a9bea6;
+}
+
+#login-button {
+  background-color: #546329;
+}
+
+#user-badge {
+  color: #0b0f08;
+  background-color: #58af9e;
+  min-width: min-content;
+  display:inline-block;
+  padding: 10px 15px 10px 15px;
+  text-align:center;
+  border-radius:50%;
+}
+
+#logout-button {
+  background-color: #ed5255;
+}
+
+.post-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
 .post-card {
   float: left;
+  margin: auto;
+  min-width: 350px;
   max-width: 350px;
+  min-height: 400px;
+  max-height: 400px;
   margin: 20px;
-  background-color: #1AC8DB;
+  background-color: #0b0f08;
+  border: #546329;
+  border-width: 4px;
+  border-style: solid;
 }
 
 .image {
-  margin: 10px;
+  margin-top: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+  height: 320px;
 }
 

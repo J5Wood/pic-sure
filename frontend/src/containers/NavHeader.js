@@ -44,15 +44,18 @@ class NavHeader extends Component {
     renderDisplay = () => {
         if (!!this.props.currentUser) {
             return (
-                <div>
-                    <Badge variant="info" >{this.props.currentUser}</Badge>
-                    <Button onClick={this.logout} variant="danger">LOGOUT</Button>
+                <div className="d-flex flex-fill justify-content-between">
+                    <Badge id="user-badge" className="d-inline-flex align-items-center" pill>{this.props.currentUser}</Badge>
+                    <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
+                    <Button id="logout-button" onClick={this.logout}>LOGOUT</Button>
                 </div>
             )
         } else {
             return (
-                <div>
-                <Button onClick={this.toggleLoginForm} variant="success">LOG-IN / SIGNUP</Button>
+                <div className="d-flex flex-fill justify-content-center">
+                    <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
+                    <br/>
+                    <Button id="login-button" onClick={this.toggleLoginForm}>LOG-IN / SIGNUP</Button>
                 </div>
             )
         }
@@ -61,8 +64,7 @@ class NavHeader extends Component {
     render() {
         return (
             <div>
-                <Navbar collapseOnSelect  bg="dark" variant="dark">
-                    <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
+                <Navbar className="navbar" >
                     {this.renderDisplay()}
                 </Navbar>
                 {this.renderLoginForm()}

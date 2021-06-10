@@ -23,7 +23,7 @@ class PostsContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="post-container">
                 {this.renderPosts()}
             </div>
         )
