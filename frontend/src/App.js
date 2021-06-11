@@ -7,6 +7,8 @@ import Main from './containers/Main'
 import Welcome from './containers/Welcome'
 import PostContainer from './containers/PostContainer'
 import NavHeader from './containers/NavHeader'
+import ErrorHandler from './ErrorHandler'
+
 class App extends Component {
 
   componentDidMount() {
@@ -17,6 +19,7 @@ class App extends Component {
     return (
       <div className="App">
         <NavHeader />
+        <ErrorHandler />
         <Router>
           <Route exact path="/home" component={Main} />
           <Route exact path="/posts/:post_id" component={PostContainer} />
