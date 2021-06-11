@@ -5,7 +5,8 @@ class SessionController < ApplicationController
         if !!user && user.authenticate(params[:password])
             render json: UserSerializer.new(user)
         else
-            render json: {status: "error", message: "Must enter a valid username and password"}
+            byebug
+            render json: {status: "error", message: "Must contain a valid username and password"}
         end
     end
 

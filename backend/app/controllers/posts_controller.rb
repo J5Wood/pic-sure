@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
   def index
     posts = Post.all
-
     render json: PostSerializer.new(posts)
   end
 
@@ -11,7 +10,6 @@ class PostsController < ApplicationController
   def show
     post = Post.find_by(id: params[:id])
     render json: PostSerializer.new(post)
-    # render json: PostSerializer.new(post)
   end
 
 
@@ -22,7 +20,7 @@ class PostsController < ApplicationController
     if post.save
       render json: PostSerializer.new(post)
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render json: {status: "error", message: post.errors.full_messages[0]}
     end
   end
 

@@ -19,7 +19,7 @@ class CommentsController < ApplicationController
     if comment.save
       render json: CommentSerializer.new(comment)
     else
-      render json: @comment.errors, status: :unprocessable_entity
+      render json: {status: "error", message: comment.errors.full_messages[0]}
     end
   end
 
