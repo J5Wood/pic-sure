@@ -15,6 +15,9 @@ export function login(credentials) {
         fetch('http://localhost:3001/session', configObj)
         .then(resp => resp.json())
         .then( jsonResp => {
+            if (jsonResp.status === 'error') {
+                return handleError(jsonResp, dispatch)
+            }
             localStorage.setItem("token", jsonResp.data.attributes.token)
             dispatch({type: 'LOGIN_USER', payload: jsonResp.data.attributes})
         })
@@ -39,10 +42,13 @@ export function signup(credentials) {
         fetch('http://localhost:3001/users', configObj)
         .then(resp => resp.json())
         .then( jsonResp => {
+            if (jsonResp.status === 'error') {
+                return handleError(jsonResp, dispatch)
+            }
             localStorage.setItem("token", jsonResp.data.attributes.token)
             dispatch({type: 'LOGIN_USER', payload: jsonResp.data.attributes})
         })
-        .catch(() => dispatch({ type: "ERROR", payload: "Must contain valid username and password"}))
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }
 
@@ -71,4 +77,8 @@ export function logout(user) {
     return dispatch => {
         dispatch({type: 'LOGOUT', payload: user})
     }
+}
+
+const handleError = (resp, dispatch) => {
+    return dispatch({type: "ERROR", payload: resp.message})
 }

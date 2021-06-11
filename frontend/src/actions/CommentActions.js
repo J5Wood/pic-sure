@@ -29,7 +29,12 @@ export function addNewComment(comment) {
         dispatch({type: "BEGIN_ADDING_COMMENT"})
         fetch("http://localhost:3001/comments", configObj)
         .then(resp => resp.json())
-        .then(jsonResp => dispatch({type: "ADD_COMMENT", payload: jsonResp.data}))
+        .then(jsonResp => {
+            if (jsonResp.status === 'error') {
+                return dispatch({type: "ERROR", payload: jsonResp.message})
+            }
+            dispatch({type: "ADD_COMMENT", payload: jsonResp.data})
+        })
         .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }
