@@ -1,49 +1,11 @@
 import React, { Component } from 'react'
 import Navbar from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button'
-import SignupForm from './SignupForm'
-import LoginForm from './LoginForm'
 import Badge from 'react-bootstrap/Badge'
 import { connect } from 'react-redux'
 import { logout } from '../actions/UserActions'
 
 class NavHeader extends Component {
-
-    state = {
-        showForm: false,
-        showSignup: false,
-        showLogin: false
-    }
-
-    toggleLoginForm = () => {
-        this.setState({
-            showLogin: !this.state.showLogin
-        })
-    }
-
-    renderLoginForm = () => {
-        if (this.state.showLogin) {
-            return (
-                <div className="d-flex flex-fill justify-content-center">
-                    <div className="login-signup-form">
-                    <LoginForm closeForm={this.closeForm}/>
-                    </div>
-                    <div className="d-inline-flex align-items-center">
-                    - OR -
-                    </div> 
-                    <div className="login-signup-form">
-                    <SignupForm closeForm={this.closeForm}/>
-                    </div>
-                </div>
-            )
-        }
-    }
-
-    closeForm = () => {
-        this.setState({
-            showLogin: !this.state.showLogin
-        })
-    }
 
     logout = () => {
         this.props.logout(this.props.user)
@@ -62,8 +24,6 @@ class NavHeader extends Component {
             return (
                 <div className="d-flex flex-fill justify-content-center">
                     <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
-                    <br/>
-                    <Button className="form-button" onClick={this.toggleLoginForm}>LOG-IN / SIGNUP</Button>
                 </div>
             )
         }
@@ -75,7 +35,6 @@ class NavHeader extends Component {
                 <Navbar className="navbar" >
                     {this.renderDisplay()}
                 </Navbar>
-                {this.renderLoginForm()}
             </div>
         )
     }
