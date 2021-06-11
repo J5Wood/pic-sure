@@ -18,7 +18,7 @@ export function login(credentials) {
             localStorage.setItem("token", jsonResp.data.attributes.token)
             dispatch({type: 'LOGIN_USER', payload: jsonResp.data.attributes})
         })
-        .catch(() => dispatch({ type: "USER_ERROR", payload: "Must contain valid username and password"}))
+        .catch(() => dispatch({ type: "ERROR", payload: "Must contain valid username and password"}))
     }
 }
 
@@ -42,7 +42,7 @@ export function signup(credentials) {
             localStorage.setItem("token", jsonResp.data.attributes.token)
             dispatch({type: 'LOGIN_USER', payload: jsonResp.data.attributes})
         })
-        .catch(() => dispatch({ type: "USER_ERROR", payload: "Must contain valid username and password"}))
+        .catch(() => dispatch({ type: "ERROR", payload: "Must contain valid username and password"}))
     }
 }
 

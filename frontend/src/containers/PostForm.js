@@ -24,12 +24,16 @@ class PostForm extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        this.props.addNewPost(this.state, this.props.user)
-        this.setState({
-            content: '',
-            photo: null
-        })
-        this.props.closeForm()
+        if (this.state.content === '' || this.state.photo === null) {
+            this.props.error("Must provide a file and a title")
+        } else {
+            this.props.addNewPost(this.state, this.props.user)
+            this.setState({
+                content: '',
+                photo: null
+            })
+            this.props.closeForm()
+        }
     }
   
     render() {
@@ -45,7 +49,6 @@ class PostForm extends Component {
                 <br/>
                 <Button className="danger-button margin-right" onClick={this.props.closeForm}>X</Button>
                 <input className="form-button" type='submit'></input>
-    
             </form>
         )
     }
@@ -58,7 +61,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        addNewPost: (post, user) => dispatch(addNewPost(post, user))
+        addNewPost: (post, user) => dispatch(addNewPost(post, user)),
+        error: error => dispatch({type: 'ERROR', payload: error})
     }
 }
 

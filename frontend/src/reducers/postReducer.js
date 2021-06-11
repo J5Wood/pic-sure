@@ -20,7 +20,8 @@ export default function postReducer(
 
         case 'BEGIN_FETCHING_POST':
             return {
-                ...state, loading: true
+                ...state,
+                loading: true
             }
 
         case 'DISPLAY_POST':
@@ -32,8 +33,10 @@ export default function postReducer(
 
         case 'BEGIN_ADDING_POST':
             return {
-                ...state, loading: true
+                ...state,
+                loading: true
             }
+
         case 'ADD_NEW_POST':
             return {
                 ...state, posts: [
@@ -41,6 +44,7 @@ export default function postReducer(
                 ],
                 loading: false
             }
+
         default:
             return state
     }

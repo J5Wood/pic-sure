@@ -20,7 +20,6 @@ class ErrorHandler extends Component {
         }
     }
 
-    
     render() {
         return (
             <div>
@@ -32,7 +31,7 @@ class ErrorHandler extends Component {
 
 const mapStateToProps = state => {
     return {
-        error: state.userReducer.error
+        error: state.errorReducer.error
     }
 }
 

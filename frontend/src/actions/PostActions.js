@@ -21,6 +21,7 @@ export function addNewPost(formState, user) {
         fetch('http://localhost:3001/posts', configObj)
         .then(resp => resp.json())
         .then(jsonResp => dispatch({type: 'ADD_NEW_POST', payload: jsonResp.data}))
+        // .catch(error => dispatch({ type: "POST_ERROR", payload: error.message}))
     }
 }
 
