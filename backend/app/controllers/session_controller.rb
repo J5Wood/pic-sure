@@ -5,7 +5,6 @@ class SessionController < ApplicationController
         if !!user && user.authenticate(params[:password])
             render json: UserSerializer.new(user)
         else
-            byebug
             render json: {status: "error", message: "Must contain a valid username and password"}
         end
     end
@@ -20,9 +19,7 @@ class SessionController < ApplicationController
     end
 
     private
-
     def session_params
         params.require(:session).permit(:username, :password)
     end
-
 end

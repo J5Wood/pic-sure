@@ -8,5 +8,4 @@ class Post < ApplicationRecord
     def get_photo_url
       url_for(self.photo)
     end
-
 end
