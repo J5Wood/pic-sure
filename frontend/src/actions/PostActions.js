@@ -4,6 +4,7 @@ export function fetchPosts() {
         fetch('http://localhost:3001/posts')
         .then(resp => resp.json())
         .then(jsonResp => dispatch({ type: 'ADD_POSTS', payload: jsonResp.data}))
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }
 
@@ -21,7 +22,7 @@ export function addNewPost(formState, user) {
         fetch('http://localhost:3001/posts', configObj)
         .then(resp => resp.json())
         .then(jsonResp => dispatch({type: 'ADD_NEW_POST', payload: jsonResp.data}))
-        // .catch(error => dispatch({ type: "POST_ERROR", payload: error.message}))
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }
 
@@ -31,5 +32,6 @@ export function fetchPost(id) {
         fetch(`http://localhost:3001/posts/${id}`)
         .then(resp => resp.json())
         .then(jsonResp => dispatch({ type: 'DISPLAY_POST', payload: jsonResp.data}))
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }

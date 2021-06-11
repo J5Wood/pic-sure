@@ -12,6 +12,7 @@ export function fetchComments(postId) {
         fetch('http://localhost:3001/comments', configObj)
         .then(resp => resp.json())
         .then(jsonResp => dispatch({type: "ADD_COMMENTS", payload: jsonResp.data}))
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }
 
@@ -29,5 +30,6 @@ export function addNewComment(comment) {
         fetch("http://localhost:3001/comments", configObj)
         .then(resp => resp.json())
         .then(jsonResp => dispatch({type: "ADD_COMMENT", payload: jsonResp.data}))
+        .catch(error => dispatch({ type: "ERROR", payload: error.message}))
     }
 }
