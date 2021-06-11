@@ -1,24 +1,36 @@
-# README
+# Pic-Sure!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Pic-Sure is an image sharing single page application.
+It is built with a Rails backend and a React frontend.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+First, clone the repository. Then setup the backend and frontend.
 
-* System dependencies
+Backend:
+cd into backend directory in your terminal, then run:
+```
+bundle install
+rails db:migrate
+rails s
+```
 
-* Configuration
+This will start a rails server on http://localhost/3001
+(Note, you can run rails db:seed as well to start off with some pre-seeded data)
 
-* Database creation
+Frontend:
+cd into frontend directory in your terminal, then run:
+```
+npm install
+npm run
+```
 
-* Database initialization
+This will start React on http://localhost/3000, navigate here to use app
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Please make sure to update tests as appropriate.
 
-* Deployment instructions
-
-* ...
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
