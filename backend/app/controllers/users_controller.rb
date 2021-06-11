@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     if user.save
       render json: UserSerializer.new(user)
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: {status: "error", message: "Must enter a valid username and password"}
     end
   end
 

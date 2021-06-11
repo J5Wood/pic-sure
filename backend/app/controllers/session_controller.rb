@@ -2,10 +2,10 @@ class SessionController < ApplicationController
 
     def login
         user = User.find_by(username: params[:username])
-        if user.authenticate(params[:password])
+        if !!user && user.authenticate(params[:password])
             render json: UserSerializer.new(user)
         else
-            byebug
+            render json: {status: "error", message: "Must enter a valid username and password"}
         end
     end
 
@@ -15,8 +15,6 @@ class SessionController < ApplicationController
             if (!decoded_hash.empty?)
                 user = User.find_by(id: decoded_hash[0]["user_id"])
                 render json: UserSerializer.new(user)
-            else
-                byebug
             end
     end
 
