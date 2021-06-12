@@ -16,6 +16,7 @@ rails s
 ```
 
 This will start a rails server on http://localhost/3001
+
 (Note, you can run rails db:seed as well to start off with some pre-seeded data)
 
 Frontend:
