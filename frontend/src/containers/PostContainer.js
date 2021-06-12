@@ -15,7 +15,7 @@ class PostContainer extends Component {
     renderPost = () => {
         if (!!this.props.post.id && this.props.post.id === this.props.match.url.split("/")[2]) {
             return (
-                <div>
+                <div className="post-container">
                     <Post key={this.props.post.id} post={this.props.post}/>
                     <CommentsContainer postId={this.props.post.id} />
                 </div>
