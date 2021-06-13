@@ -11,6 +11,10 @@ class User < ApplicationRecord
     end
 
     def encode_token(id_object)
-        JWT.encode(id_object, 'secret')
+        JWT.encode(id_object, secret_key)
+    end
+
+    def secret_key
+        Rails.application.credentials.secret_jwt_key
     end
 end
