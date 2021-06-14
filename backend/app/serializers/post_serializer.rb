@@ -1,6 +1,6 @@
 class PostSerializer
   include JSONAPI::Serializer
-  attributes :content
+  attributes :content, :likes
 
   attribute :photo_url do |object|
     "#{object.get_photo_url}"

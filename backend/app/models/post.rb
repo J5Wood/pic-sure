@@ -4,6 +4,7 @@ class Post < ApplicationRecord
     has_many :comments
     has_one_attached :photo
     validates :content, presence: true
+    serialize :likes
 
     def get_photo_url
       url_for(self.photo)

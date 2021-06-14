@@ -11,14 +11,14 @@ b = User.create(username: "Jill", password: "pass")
 
 
 
-e = a.posts.create(content: "This is a post by #{a.username}")
+e = a.posts.create(content: "This is a post by #{a.username}", likes: [])
 e.photo.attach(
     io: File.open('public/images/cat1.jpeg'),
     filename: "post-#{e.id}.jpg"
 )
 e.comments.create(content: "Post #{e.id} is amazing!", user: b)
 
-f = a.posts.create(content: "This is another post by #{a.username}")
+f = a.posts.create(content: "This is another post by #{a.username}", likes: [])
 f.photo.attach(
     io: File.open('public/images/cat2.jpeg'),
     filename: "post-#{f.id}.jpg"
@@ -26,7 +26,7 @@ f.photo.attach(
 f.comments.create(content: "Post #{f.id} is amazing!", user: b)
 
 
-g = a.posts.create(content: "This is the last post by #{a.username}")
+g = a.posts.create(content: "This is the last post by #{a.username}", likes: [])
 g.photo.attach(
     io: File.open('public/images/cat3.jpeg'),
     filename: "post-#{g.id}.jpg"
@@ -36,21 +36,21 @@ g.comments.create(content: "Post #{g.id} is amazing!", user: b)
 
 
 
-h = b.posts.create(content: "This is a post by #{b.username}")
+h = b.posts.create(content: "This is a post by #{b.username}", likes: [])
 h.photo.attach(
     io: File.open('public/images/cat4.jpeg'),
     filename: "post-#{h.id}.jpg"
 )
 h.comments.create(content: "Post #{h.id} is amazing!", user: a)
 
-i = b.posts.create(content: "This is another post by #{b.username}")
+i = b.posts.create(content: "This is another post by #{b.username}", likes: [])
 i.photo.attach(
     io: File.open('public/images/cat5.jpeg'),
     filename: "post-#{i.id}.jpg"
 )
 i.comments.create(content: "Post #{i.id} is amazing!", user: a)
 
-j = b.posts.create(content: "This is the last post by #{b.username}")
+j = b.posts.create(content: "This is the last post by #{b.username}", likes: [])
 j.photo.attach(
     io: File.open('public/images/cat6.jpeg'),
     filename: "post-#{j.id}.jpg"
