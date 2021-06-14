@@ -30,6 +30,8 @@ class PostsController < ApplicationController
       else
         post.likes.delete(params[:user])
       end
+    end
+    if post.save
       render json: PostSerializer.new(post)
     else
       render json: {status: "error", message: post.errors.full_messages[0]}
