@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def create
     user = User.new(user_params)
+    user.user_id = SecureRandom.uuid
     if user.save
       render json: UserSerializer.new(user)
     else

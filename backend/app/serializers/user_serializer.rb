@@ -1,6 +1,6 @@
 class UserSerializer
     include JSONAPI::Serializer
-    attributes :username
+    attributes :username, :user_id
 
     attribute :token do |object|
         "#{object.get_token}"

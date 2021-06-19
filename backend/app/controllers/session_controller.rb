@@ -10,12 +10,12 @@ class SessionController < ApplicationController
     end
 
     def auto_login
-            token = request.headers['Authorization'].split(' ')[1] 
-            decoded_hash = (JWT.decode(token, secret_key, true, algorithm: 'HS256'))
-            if (!decoded_hash.empty?)
-                user = User.find_by(id: decoded_hash[0]["user_id"])
-                render json: UserSerializer.new(user)
-            end
+        token = request.headers['Authorization'].split(' ')[1] 
+        decoded_hash = (JWT.decode(token, secret_key, true, algorithm: 'HS256'))
+        if (!decoded_hash.empty?)
+            user = User.find_by(id: decoded_hash[0]["user_id"])
+            render json: UserSerializer.new(user)
+        end
     end
 
     private

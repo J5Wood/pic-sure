@@ -6,12 +6,16 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = Comment.new(comment_params)
-    comment.user = User.find_by(username: params[:user])
-    if comment.save
-      render json: CommentSerializer.new(comment)
+    user = User.find_by(user_id: params[:userId])
+    if !!user
+      comment = user.comments.build(comment_params)
+      if comment.save
+        render json: CommentSerializer.new(comment)
+      else
+        render json: {status: "error", message: comment.errors.full_messages[0]}
+      end
     else
-      render json: {status: "error", message: comment.errors.full_messages[0]}
+      render json: {status: "error", message: "Unexpected Error Occurred"}
     end
   end
 
