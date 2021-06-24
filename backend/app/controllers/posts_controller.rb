@@ -41,6 +41,17 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find_by(id: params[:id])
+    if post.user.user_id == params[:user_id]
+      post_id = post.id.to_s
+      post.destroy
+      render json: {postId: post_id}
+    else
+      render json: {status: "error", message: "Danger will robinson"}
+    end
+  end
+
   private
     def post_params
       params.permit(:content, :photo)
