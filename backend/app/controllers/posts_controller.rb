@@ -5,11 +5,6 @@ class PostsController < ApplicationController
     render json: PostSerializer.new(posts)
   end
 
-  def show
-    post = Post.find_by(id: params[:id])
-    render json: PostSerializer.new(post)
-  end
-
   def create
     user = User.find_by(user_id: params[:userId])
     if !!user
