@@ -3,7 +3,7 @@ b = User.create(username: "Jill", password: "pass", user_id: SecureRandom.uuid)
 c = User.create(username: "Frank", password: "pass", user_id: SecureRandom.uuid)
 
 
-e = a.posts.create(content: "This is a post by #{a.username}", likes: [])
+e = a.posts.create(content: "Someone's tired", likes: [])
 e.photo.attach(
     io: File.open('public/images/cat1.jpeg'),
     filename: "post-#{e.id}.jpg"
@@ -11,7 +11,7 @@ e.photo.attach(
 e.comments.create(content: "Post #{e.id} is amazing!", user: b)
 
 
-f = b.posts.create(content: "This is another post by #{b.username}", likes: [])
+f = b.posts.create(content: "Such a cutie, 14/10!", likes: [])
 f.photo.attach(
     io: File.open('public/images/dog1.jpeg'),
     filename: "post-#{f.id}.jpg"
@@ -19,7 +19,7 @@ f.photo.attach(
 f.comments.create(content: "Post #{f.id} is amazing!", user: c)
 
 
-g = a.posts.create(content: "This is the last post by #{a.username}", likes: [])
+g = a.posts.create(content: "Hello there!", likes: [])
 g.photo.attach(
     io: File.open('public/images/cat2.jpeg'),
     filename: "post-#{g.id}.jpg"
@@ -27,7 +27,7 @@ g.photo.attach(
 g.comments.create(content: "Post #{g.id} is amazing!", user: c)
 
 
-h = c.posts.create(content: "This is a post by #{c.username}", likes: [])
+h = c.posts.create(content: "I swear, Peaches is more photogenic than I am!", likes: [])
 h.photo.attach(
     io: File.open('public/images/dog2.jpeg'),
     filename: "post-#{h.id}.jpg"
@@ -35,7 +35,7 @@ h.photo.attach(
 h.comments.create(content: "Post #{h.id} is amazing!", user: a)
 
 
-i = c.posts.create(content: "This is another post by #{c.username}", likes: [])
+i = c.posts.create(content: "'...I'm not in trouble, am I?'", likes: [])
 i.photo.attach(
     io: File.open('public/images/cat3.jpeg'),
     filename: "post-#{i.id}.jpg"
@@ -43,7 +43,7 @@ i.photo.attach(
 i.comments.create(content: "Post #{i.id} is amazing!", user: b)
 
 
-j = b.posts.create(content: "This is the last post by #{b.username}", likes: [])
+j = b.posts.create(content: "Someone special brought me a flower!!!", likes: [])
 j.photo.attach(
     io: File.open('public/images/dog3.jpeg'),
     filename: "post-#{j.id}.jpg"
