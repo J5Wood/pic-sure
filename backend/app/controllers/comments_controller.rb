@@ -19,6 +19,15 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    comment = Comment.find_by(id: params[:id])
+    if comment.destroy
+      render json: {commentId: params[:id]}
+    else
+      render json: {status: "error", message: comment.errors.full_messages[0]}
+    end
+  end
+
   private
     def comment_params
       params.permit(:content, :post_id)
