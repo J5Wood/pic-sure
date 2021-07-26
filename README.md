@@ -12,6 +12,11 @@ Post, like, and comment on your favorite pictures!
 * Image storage handled by Active Storage
 
 
+## Demo
+
+[Video Walkthrough](https://drive.google.com/file/d/16DvtUvvkEMGI2QC5JlA60f_LWTpgUy1v/view?usp=sharing)
+
+
 ## Installation
 
 First, clone the repository. Then setup the backend and frontend.
