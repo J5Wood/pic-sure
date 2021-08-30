@@ -48,7 +48,7 @@ class Post extends Component {
         if (this.state.renderDeleteVerification === true) {
             return (
                 <h4>
-                    <Badge variant='light'>Are you sure?</Badge><Button onClick={this.handleDeleteConfirmation} size='sm' variant='danger'>Yes</Button>
+                    <Badge variant='light'>Delete Post?</Badge><button className="confirm-delete-button" onClick={this.handleDeleteConfirmation}>Yes</button>
                 </h4>
             )
         }

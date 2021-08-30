@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Badge, Button } from 'react-bootstrap'
+import { Badge } from 'react-bootstrap'
 import { fetchComments, deleteComment } from '../actions/CommentActions'
 import { Comment } from '../components/Comment'
 import CommentForm from './CommentForm'
@@ -15,7 +15,7 @@ class CommentsContainer extends Component {
 
         return ( 
             <div>
-                <Button onClick={() => this.handleDeleteClick(commentId)} className="delete-comment-button" variant="danger" size="sm">X</Button>
+                <button onClick={() => this.handleDeleteClick(commentId)} className="delete-comment-button" >X</button>
                 {this.renderConfirmation(commentId)}
             </div>
         )
@@ -25,7 +25,7 @@ class CommentsContainer extends Component {
         if (this.state.renderDeleteConfirmation === commentId) {
             return (
                 <h5>
-                    <Badge variant='light'>Are you sure?</Badge><Button onClick={() => this.handleDeleteConfirmation(commentId)} size='sm' variant='danger'>Yes</Button>
+                    <Badge variant='light'>Are you sure?</Badge><button className="confirm-delete-button" onClick={() => this.handleDeleteConfirmation(commentId)}>Yes</button>
                 </h5>
             )
         }

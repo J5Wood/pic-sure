@@ -5,7 +5,8 @@
 body {background-color: white;}
 
 .navbar {
-  background-color: #a9bea6;
+  background: linear-gradient(0deg, rgba(255,255,255,1) 2%, rgba(169, 190, 166,1) 60%);
+  padding-bottom: 30px;
 }
 
 #login-button {
@@ -140,6 +141,13 @@ a:hover{
   position: absolute;
   right:    0;
   top:   0;
+  background-color: #ed5255;
+  color: #000000;
+}
+
+.delete-post-button:hover {
+  color: #ed5255;
+  background-color: #000000;
 }
 
 .delete-confirmation {
@@ -149,6 +157,7 @@ a:hover{
 .comment-box {
   background: linear-gradient(20deg, rgba(255,255,255,.8) 2%, rgba(169, 190, 166,.7) 80%);
   padding: 10px;
+  margin: 20px 0px 20px 0px;
   border-radius: 9px;
   border-style: double;
   border-color: black;
@@ -158,6 +167,24 @@ a:hover{
 .delete-comment-button {
   position: relative;
   float: left;
+  background-color: #ed5255;
+}
+
+.delete-comment-button:hover {
+  position: relative;
+  float: left;
+  color: #ed5255;
+  background-color: #0b0f08;
+}
+
+.confirm-delete-button {
+  background-color: rgb(212, 255, 199);
+  margin: 10px;
+}
+
+.confirm-delete-button:hover {
+  background-color: #0b0f08;
+  color: rgb(212, 255, 199);
 }
 
 .login-div{
