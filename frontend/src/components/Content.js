@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const renderHeart = props => {
     if (props.post.attributes.likes.includes(props.userId)) {
@@ -20,7 +21,8 @@ export const Content = props => {
     return (
         <div className="post-content" >
             <br/>
-            <b>{props.post.attributes.user}</b> - {props.post.attributes.content}
+            <NavLink to={"/users/" + props.post.attributes.user} exact><b className="post-name-link">{props.post.attributes.user}</b></NavLink> 
+            - {props.post.attributes.content}
             <br/>
             <br/>
             <div className="likes" onClick={() => props.handleLike(props.post.id)}>

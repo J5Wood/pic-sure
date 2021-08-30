@@ -104,6 +104,20 @@ a:hover{
   margin-bottom: 5px;
 }
 
+.post-name-link {
+  color: #a9bea6;
+  background-color: black;
+  font-size: large;
+  padding:5px;
+}
+
+.post-name-link:hover {
+  background-color: #a9bea6;
+  color: black;
+  border: 1px solid black;
+  border-radius: 9px;
+}
+
 .margin-right {
   margin-right: 8px;
 }
@@ -114,6 +128,7 @@ a:hover{
   min-height: min-content;
   max-height: min-content;
   overflow-wrap: break-word;
+  padding: 2px;
   margin: 20px;
   background-color: #0b0f08;
   border: #546329;
@@ -163,6 +178,19 @@ a:hover{
   border-style: double;
   border-color: black;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+.comment-name-link {
+  color: black;
+  font-size: large;
+  padding:5px;
+}
+
+.comment-name-link:hover {
+  color: #a9bea6;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 9px;
 }
 
 .delete-comment-button {
