@@ -53,13 +53,19 @@ body {background-color: white;}
 }
 
 #user-badge {
-  color: #0b0f08;
-  background-color: #58af9e;
+  color: #ddebdb;
+  background-color: black;
   min-width: min-content;
   display:inline-block;
-  padding: 10px 15px 10px 15px;
+  padding: 15px 20px 15px 20px;
   text-align:center;
   border-radius:50%;
+  font-size: large;
+  transition: transform 1s;
+}
+
+#user-badge:hover {
+  transform: rotate3d(0,1,1, 360deg)
 }
 
 #file-input {
