@@ -2,8 +2,7 @@
   text-align: center;
 }
 
-body {background-color: #e4e9df;}
-
+body {background-color: white;}
 
 .navbar {
   background-color: #a9bea6;
@@ -28,13 +27,14 @@ body {background-color: #e4e9df;}
   margin: 28px;
   background-color: #a9bea6;
   width: 50%;
-  height: 500px;
+  height: min-content;
   border: black;
   border-style: solid;
   border-radius: 1.4%;
   border-width: 2px;
   box-shadow: 9px 9px 10px rgba(0, 0, 0, 0.4);
   z-index: 1;
+  padding: 15px;
 }
 
 .login-signup-form::before{
@@ -80,9 +80,14 @@ body {background-color: #e4e9df;}
   max-width: 100px;
   margin: auto;
 }
+
+a:hover{
+  text-decoration: none;
+}
+
 .back-button:hover {
-  color: #546329;
   background-color: #0b0f08;
+  color: rgb(212, 255, 199);
   max-width: 100px;
   margin: auto;
 }
