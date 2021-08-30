@@ -146,6 +146,15 @@ a:hover{
   background-color: #ed5255;
 }
 
+.comment-box {
+  background: linear-gradient(20deg, rgba(255,255,255,.8) 2%, rgba(169, 190, 166,.7) 80%);
+  padding: 10px;
+  border-radius: 9px;
+  border-style: double;
+  border-color: black;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+}
+
 .delete-comment-button {
   position: relative;
   float: left;

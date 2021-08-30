@@ -50,7 +50,7 @@ class CommentsContainer extends Component {
         if (!!this.props.comments[0]) {
             return this.props.comments.map(comment => {
                 return (
-                <div key={comment.id}>
+                <div className="comment-box" key={comment.id}>
                     {this.props.user === comment.attributes.user ? this.renderDeleteButton(comment.id) : null}
                     <Comment comment={comment}/>
                     <br/>
