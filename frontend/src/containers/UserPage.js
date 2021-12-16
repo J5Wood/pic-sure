@@ -2,11 +2,6 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import Post from './Post'
 
-
-// Add back button
-
-// Make back button actually use back for this page and post show page
-
 class UserPage extends Component{
 
     renderPosts = () => {
@@ -15,8 +10,12 @@ class UserPage extends Component{
 
     render() {
         return (
-            <div className="post-container">
-                {this.renderPosts()}
+            <div>
+                <button onClick={() => window.history.back()} type="button" className="back-button">BACK</button>
+
+                <div className="post-container">
+                    {this.renderPosts()}
+                </div>
             </div>
         )
     }
