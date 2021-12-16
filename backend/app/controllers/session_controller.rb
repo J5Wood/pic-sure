@@ -14,7 +14,14 @@ class SessionController < ApplicationController
         decoded_hash = (JWT.decode(token, secret_key, true, algorithm: 'HS256'))
         if (!decoded_hash.empty?)
             user = User.find_by(id: decoded_hash[0]["user_id"])
-            render json: UserSerializer.new(user)
+            
+            # Added check in case user is not found 
+
+            if (user)
+                render json: UserSerializer.new(user)
+            else
+                render json: {status: "error", message: user.errors.full_messages[0]}
+            end
         end
     end
 

@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Post from './Post'
 import CommentsContainer from './CommentsContainer'
 import { Redirect } from 'react-router';
-import { NavLink } from 'react-router-dom'
 
 class PostContainer extends Component {
 
@@ -25,10 +24,7 @@ class PostContainer extends Component {
         return (
             <div>
                 <br/>
-                <NavLink
-                    to="/home"
-                ><h3 className="back-button">BACK</h3>
-                </NavLink>
+                <button onClick={() => window.history.back()} type="button" className="back-button">BACK</button>
                 <br/>
                 {this.renderPost()}
             </div>

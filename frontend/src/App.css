@@ -7,10 +7,15 @@ body {background-color: white;}
 .navbar {
   background: linear-gradient(0deg, rgba(255,255,255,1) 2%, rgba(169, 190, 166,1) 60%);
   padding-bottom: 30px;
+  justify-content: center;
 }
 
 #login-button {
   background-color: #546329;
+}
+
+.logo {
+  position: absolute;
 }
 
 .form-button {
@@ -53,13 +58,25 @@ body {background-color: white;}
 }
 
 #user-badge {
-  color: #0b0f08;
-  background-color: #58af9e;
+  color: #ddebdb;
+  background-color: black;
   min-width: min-content;
+  height: 50px;
   display:inline-block;
-  padding: 10px 15px 10px 15px;
+  padding: 10px 20px 10px 20px;
+  border: 6px solid black;
   text-align:center;
   border-radius:50%;
+  font-size: large;
+  transition: all .55s;
+  transition-timing-function: ease-out;
+}
+
+#user-badge:hover {
+  transform: skew(-15deg);
+  border-radius:6px;
+  border: 2px solid #546329;
+  height: 50px;
 }
 
 #file-input {
@@ -104,6 +121,20 @@ a:hover{
   margin-bottom: 5px;
 }
 
+.post-name-link {
+  color: #a9bea6;
+  background-color: black;
+  font-size: large;
+  padding:5px;
+}
+
+.post-name-link:hover {
+  background-color: #a9bea6;
+  color: black;
+  border: 1px solid black;
+  border-radius: 9px;
+}
+
 .margin-right {
   margin-right: 8px;
 }
@@ -114,6 +145,7 @@ a:hover{
   min-height: min-content;
   max-height: min-content;
   overflow-wrap: break-word;
+  padding: 2px;
   margin: 20px;
   background-color: #0b0f08;
   border: #546329;
@@ -163,6 +195,19 @@ a:hover{
   border-style: double;
   border-color: black;
   box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.4);
+}
+
+.comment-name-link {
+  color: black;
+  font-size: large;
+  padding:5px;
+}
+
+.comment-name-link:hover {
+  color: #a9bea6;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 9px;
 }
 
 .delete-comment-button {
