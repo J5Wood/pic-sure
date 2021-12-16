@@ -7,10 +7,15 @@ body {background-color: white;}
 .navbar {
   background: linear-gradient(0deg, rgba(255,255,255,1) 2%, rgba(169, 190, 166,1) 60%);
   padding-bottom: 30px;
+  justify-content: center;
 }
 
 #login-button {
   background-color: #546329;
+}
+
+.logo {
+  position: absolute;
 }
 
 .form-button {
@@ -56,16 +61,22 @@ body {background-color: white;}
   color: #ddebdb;
   background-color: black;
   min-width: min-content;
+  height: 50px;
   display:inline-block;
-  padding: 15px 20px 15px 20px;
+  padding: 10px 20px 10px 20px;
+  border: 6px solid black;
   text-align:center;
   border-radius:50%;
   font-size: large;
-  transition: transform 1s;
+  transition: all .55s;
+  transition-timing-function: ease-out;
 }
 
 #user-badge:hover {
-  transform: rotate3d(0,1,1, 360deg)
+  transform: skew(-15deg);
+  border-radius:6px;
+  border: 2px solid #546329;
+  height: 50px;
 }
 
 #file-input {

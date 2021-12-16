@@ -14,11 +14,12 @@ class NavHeader extends Component {
         if (!!this.props.user) {
             return (
                 <div className="d-flex flex-fill justify-content-between">
-                    <NavLink to={"/users/" + this.props.user} exact>
-                        <Badge id="user-badge" className="d-inline-flex align-items-center" pill>{this.props.user}</Badge>
-                    </NavLink>
-                    <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
-                    <Button className="danger-button" onClick={this.logout}>LOGOUT</Button>
+                    <div className="user-badge-container">
+                        <NavLink to={"/users/" + this.props.user} exact>
+                            <Badge onMouseOver={this.handleMouseOver} id="user-badge" className="d-inline-flex align-items-center" pill>{this.props.user}</Badge>
+                        </NavLink>
+                    </div>
+                    <Button className="logout-button danger-button" onClick={this.logout}>LOGOUT</Button>
                 </div>
             )
         } else {
@@ -32,11 +33,12 @@ class NavHeader extends Component {
 
     render() {
         return (
-            <div>
-                <Navbar className="navbar" >
-                    {this.renderDisplay()}
-                </Navbar>
-            </div>
+            <Navbar className="navbar" >
+                <div className="logo">
+                    <Navbar.Brand href="/">PIC-SURE</Navbar.Brand>
+                </div>
+                {this.renderDisplay()}
+            </Navbar>
         )
     }
 }
