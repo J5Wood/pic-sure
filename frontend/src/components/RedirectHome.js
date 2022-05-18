@@ -1,10 +1,8 @@
-import React from 'react'
-import { Redirect } from 'react-router';
+import React from "react";
+import { Redirect } from "react-router";
 
 const RedirectHome = () => {
-    return (
-        <Redirect to="/"/>
-    )
-}
+  return <Redirect to="/" />;
+};
 
-export default RedirectHome
+export default RedirectHome;

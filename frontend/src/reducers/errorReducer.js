@@ -1,20 +1,21 @@
 export default function errorReducer(
-    state = {
-        error: []
-    }, action
+  state = {
+    error: [],
+  },
+  action
 ) {
-    switch (action.type) {
-        case 'ERROR':
-            return {
-                error: action.payload
-            }
+  switch (action.type) {
+    case "ERROR":
+      return {
+        error: action.payload,
+      };
 
-        case 'REMOVE_ERROR':
-            return {
-                error: []
-            }
+    case "REMOVE_ERROR":
+      return {
+        error: [],
+      };
 
-        default:
-            return state
-    }
+    default:
+      return state;
+  }
 }
