@@ -1,8 +1,17 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import { NavLink } from "react-router-dom";
 
-export const Comment = props => {
-    return (
-        <li><NavLink className="comment-name-link" to={"/users/" + props.comment.attributes.user} exact><b>{props.comment.attributes.user}</b></NavLink> - {props.comment.attributes.content}</li>
-    )
-}
+export const Comment = ({ comment }) => {
+  return (
+    <li>
+      <NavLink
+        className="comment-name-link"
+        to={"/users/" + comment.attributes.user}
+        exact
+      >
+        <b>{comment.attributes.user}</b>
+      </NavLink>{" "}
+      - {comment.attributes.content}
+    </li>
+  );
+};
