@@ -3,7 +3,7 @@
 Pic-Sure is an image sharing single page application.
 Post, like, and comment on your favorite pictures!
 
-![Pic-Sure Screenshot](./Pic-Sure-Photo.png)
+![Pic-Sure Screenshot](./pic-sure-photo.png)
 
 ## Features
 
